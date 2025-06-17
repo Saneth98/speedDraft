@@ -1,0 +1,57 @@
+[debug] [2025-06-17T10:27:43.035Z] ----------------------------------------------------------------------
+[debug] [2025-06-17T10:27:43.037Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2025-06-17T10:27:43.037Z] CLI Version:   14.7.0
+[debug] [2025-06-17T10:27:43.037Z] Platform:      win32
+[debug] [2025-06-17T10:27:43.037Z] Node Version:  v20.0.0
+[debug] [2025-06-17T10:27:43.037Z] Time:          Tue Jun 17 2025 15:57:43 GMT+0530 (India Standard Time)
+[debug] [2025-06-17T10:27:43.037Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-06-17T10:27:43.180Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-06-17T10:27:43.180Z] > authorizing via signed-in user (sanethchandrasekara@gmail.com)
+[debug] [2025-06-17T10:27:43.180Z] [iam] checking project speedloan-8f3f0 for permissions ["firebase.projects.get",null]
+[debug] [2025-06-17T10:27:43.181Z] Checked if tokens are valid: true, expires at: 1750158102453
+[debug] [2025-06-17T10:27:43.181Z] Checked if tokens are valid: true, expires at: 1750158102453
+[debug] [2025-06-17T10:27:43.182Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/speedloan-8f3f0:testIamPermissions [none]
+[debug] [2025-06-17T10:27:43.182Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/speedloan-8f3f0:testIamPermissions x-goog-quota-user=projects/speedloan-8f3f0
+[debug] [2025-06-17T10:27:43.182Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/speedloan-8f3f0:testIamPermissions {"permissions":["firebase.projects.get",null]}
+[debug] [2025-06-17T10:27:44.700Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/speedloan-8f3f0:testIamPermissions 200
+[debug] [2025-06-17T10:27:44.700Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/speedloan-8f3f0:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2025-06-17T10:27:44.700Z] [iam] error while checking permissions, command may fail: Authorization failed. This account is missing the following required permissions on project speedloan-8f3f0:
+
+  
+[info] 
+[info] === Deploying to 'speedloan-8f3f0'...
+[info] 
+[info] i  deploying apphosting 
+[debug] [2025-06-17T10:27:44.702Z] Checked if tokens are valid: true, expires at: 1750158102453
+[debug] [2025-06-17T10:27:44.702Z] Checked if tokens are valid: true, expires at: 1750158102453
+[debug] [2025-06-17T10:27:44.702Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/speedloan-8f3f0/services/firebaseapphosting.googleapis.com [none]
+[debug] [2025-06-17T10:27:44.702Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/speedloan-8f3f0/services/firebaseapphosting.googleapis.com x-goog-quota-user=projects/speedloan-8f3f0
+[debug] [2025-06-17T10:27:46.604Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/speedloan-8f3f0/services/firebaseapphosting.googleapis.com 200
+[debug] [2025-06-17T10:27:46.604Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/speedloan-8f3f0/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2025-06-17T10:27:46.605Z] Checked if tokens are valid: true, expires at: 1750158102453
+[debug] [2025-06-17T10:27:46.605Z] Checked if tokens are valid: true, expires at: 1750158102453
+[debug] [2025-06-17T10:27:46.605Z] Checked if tokens are valid: true, expires at: 1750158102453
+[debug] [2025-06-17T10:27:46.605Z] Checked if tokens are valid: true, expires at: 1750158102453
+[debug] [2025-06-17T10:27:46.605Z] Checked if tokens are valid: true, expires at: 1750158102453
+[debug] [2025-06-17T10:27:46.605Z] Checked if tokens are valid: true, expires at: 1750158102453
+[debug] [2025-06-17T10:27:46.605Z] Checked if tokens are valid: true, expires at: 1750158102453
+[debug] [2025-06-17T10:27:46.605Z] Checked if tokens are valid: true, expires at: 1750158102453
+[debug] [2025-06-17T10:27:46.605Z] Checked if tokens are valid: true, expires at: 1750158102453
+[debug] [2025-06-17T10:27:46.605Z] Checked if tokens are valid: true, expires at: 1750158102453
+[debug] [2025-06-17T10:27:46.605Z] Checked if tokens are valid: true, expires at: 1750158102453
+[debug] [2025-06-17T10:27:46.605Z] Checked if tokens are valid: true, expires at: 1750158102453
+[debug] [2025-06-17T10:27:46.605Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/speedloan-8f3f0/services/developerconnect.googleapis.com [none]
+[debug] [2025-06-17T10:27:46.605Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/speedloan-8f3f0/services/developerconnect.googleapis.com x-goog-quota-user=projects/speedloan-8f3f0
+[debug] [2025-06-17T10:27:46.606Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/speedloan-8f3f0/services/cloudbuild.googleapis.com [none]
+[debug] [2025-06-17T10:27:46.606Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/speedloan-8f3f0/services/cloudbuild.googleapis.com x-goog-quota-user=projects/speedloan-8f3f0
+[debug] [2025-06-17T10:27:46.607Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/speedloan-8f3f0/services/secretmanager.googleapis.com [none]
+[debug] [2025-06-17T10:27:46.607Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/speedloan-8f3f0/services/secretmanager.googleapis.com x-goog-quota-user=projects/speedloan-8f3f0
+[debug] [2025-06-17T10:27:46.608Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/speedloan-8f3f0/services/run.googleapis.com [none]
+[debug] [2025-06-17T10:27:46.608Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/speedloan-8f3f0/services/run.googleapis.com x-goog-quota-user=projects/speedloan-8f3f0
+[debug] [2025-06-17T10:27:46.609Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/speedloan-8f3f0/services/artifactregistry.googleapis.com [none]
+[debug] [2025-06-17T10:27:46.609Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/speedloan-8f3f0/services/artifactregistry.googleapis.com x-goog-quota-user=projects/speedloan-8f3f0
+[debug] [2025-06-17T10:27:46.610Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/speedloan-8f3f0/services/iam.googleapis.com [none]
+[debug] [2025-06-17T10:27:46.610Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/speedloan-8f3f0/services/iam.googleapis.com x-goog-quota-user=projects/speedloan-8f3f0
+[debug] [2025-06-17T10:27:47.035Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/speedloan-8f3f0/services/developerconnect.googleapis.com 200
+[debug] [2025-06-17T10:27:47.035Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/speedloan-8f3f0/services/developerconnect.googleapis.com [omitted]
