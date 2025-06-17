@@ -18,7 +18,6 @@ export class AppComponent implements OnInit {
   calculate() {
     this.arr = []
     let intrest = this.amount * this.percentage / 100;
-    console.log(intrest);
     let months = 1;
     this.arr[0] = {month: months, remain: this.amount, intrest, bulk: 0, monthly: this.monthlyPayment}
     let amount = this.amount - (this.monthlyPayment - intrest)
