@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import { initializeApp } from "firebase/app";
 
 @Component({
   selector: 'app-root',
@@ -6,6 +7,9 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+  constructor() {
+    const app = initializeApp(firebaseConfig)
+  }
   title = 'app1';
   rate: number = 1100;
   rateAmount: number = 100000;
@@ -52,3 +56,14 @@ export class AppComponent implements OnInit {
     this.percentage = parseFloat(((this.rate / this.rateAmount) * 100).toFixed(2));
   }
 }
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyA0g-MyBdnR89lx5N0PHqSaFfeVWapR7O0",
+  authDomain: "speedloan-8f3f0.firebaseapp.com",
+  projectId: "speedloan-8f3f0",
+  storageBucket: "speedloan-8f3f0.firebasestorage.app",
+  messagingSenderId: "116998751373",
+  appId: "1:116998751373:web:1f28f9ecce47152e978ec4"
+};
+
+// Initialize Firebase
