@@ -1,81 +1,116 @@
 <div class="container mt-4">
-  <h3 class="mb-4 text-center text-md-start">Speed Draft Repayment Calculator</h3>
+    <h3 class="mb-4 text-center text-md-start">Speed Draft Repayment Calculator</h3>
 
-  <!-- Input Section -->
-  <div class="card p-4 mb-4 shadow-sm">
-    <div class="row g-3">
-      <div class="col-12 col-md-6">
-        <label class="form-label">Rate</label>
-        <div class="input-group">
-          <span class="input-group-text">Rs</span>
-          <input type="number" class="form-control" [(ngModel)]="rate" placeholder="Rate" />
+    <!-- Input Section -->
+    <div class="card p-4 mb-4 shadow-sm">
+        <div class="row g-3">
+            <div class="col-12 col-md-6">
+                <label class="form-label">Rate</label>
+                <div class="input-group">
+                    <span class="input-group-text">Rs</span>
+                    <input
+                            type="text"
+                            class="form-control"
+                            [value]="formatNumber(rate)"
+                            (input)="rate = parseNumber($any($event.target).value)"
+                            (blur)="rate = roundNumber(rate)"
+                            placeholder="Rate"
+                    />
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <label class="form-label">Rate Amount</label>
+                <div class="input-group">
+                    <span class="input-group-text">per Rs</span>
+                    <input
+                            type="text"
+                            class="form-control"
+                            [value]="formatNumber(rateAmount)"
+                            (input)="rateAmount = parseNumber($any($event.target).value)"
+                            (blur)="rateAmount = roundNumber(rateAmount)"
+                            placeholder="Rate Amount"
+                    />
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <label class="form-label">Actual Loan Amount</label>
+                <input
+                        type="text"
+                        class="form-control"
+                        [value]="formatNumber(amount)"
+                        (input)="amount = parseNumber($any($event.target).value)"
+                        (blur)="amount = roundNumber(amount)"
+                        placeholder="Loan Amount"
+                />
+            </div>
+
+            <div class="col-12 col-md-6">
+                <label class="form-label">Monthly Payable Amount</label>
+                <input
+                        type="text"
+                        class="form-control"
+                        [value]="formatNumber(monthlyPayment)"
+                        (input)="monthlyPayment = parseNumber($any($event.target).value)"
+                        (blur)="monthlyPayment = roundNumber(monthlyPayment)"
+                        placeholder="Monthly Payable Amount"
+                />
+            </div>
         </div>
-      </div>
 
-      <div class="col-12 col-md-6">
-        <label class="form-label">Rate Amount</label>
-        <div class="input-group">
-          <span class="input-group-text">per Rs</span>
-          <input type="number" class="form-control" [(ngModel)]="rateAmount" />
+        <div class="mt-4 text-end">
+            <button class="btn btn-primary w-100 w-md-auto" (click)="calculate()">Calculate</button>
         </div>
-      </div>
-
-      <div class="col-12 col-md-6">
-        <label class="form-label">Actual Loan Amount</label>
-        <input type="number" class="form-control" [(ngModel)]="amount" placeholder="Loan Amount" />
-      </div>
-
-      <div class="col-12 col-md-6">
-        <label class="form-label">Monthly Payable Amount</label>
-        <input type="number" class="form-control" [(ngModel)]="monthlyPayment" placeholder="Monthly Payable Amount" />
-      </div>
     </div>
 
-    <div class="mt-4 text-end">
-      <button class="btn btn-primary w-100 w-md-auto" (click)="calculate()">Calculate</button>
-    </div>
-  </div>
+    <!-- Preview Section -->
+    <div *ngIf="arr?.length > 0" class="card p-4 shadow-sm">
+        <h5 class="mb-3 text-center text-md-start">Payment Plan Preview</h5>
 
-  <!-- Preview Section -->
-  <div *ngIf="arr?.length > 0" class="card p-4 shadow-sm">
-    <h5 class="mb-3 text-center text-md-start">Payment Plan Preview</h5>
-
-    <!-- Table headers for larger screens -->
-    <div class="d-none d-md-flex fw-bold border-bottom pb-2 mb-2">
-      <div class="col-md-2">Month</div>
-      <div class="col-md-2 text-end">Monthly</div>
-      <div class="col-md-2 text-end">Remaining</div>
-      <div class="col-md-2 text-end">Interest</div>
-      <div class="col-md-4 text-end">Bulk Payment</div>
-    </div>
-
-    <!-- Responsive rows -->
-    <div *ngFor="let data of arr" class="mb-3 border-bottom pb-2">
-      <div class="row g-2 align-items-end">
-        <!-- Small screen labels -->
-        <div class="col-6 d-md-none"><strong>Month:</strong></div>
-        <div class="col-6 col-md-2">{{ data.month }}</div>
-
-        <div class="col-6 d-md-none"><strong>Monthly:</strong></div>
-        <div class="col-6 col-md-2 text-md-end">Rs {{ data.monthly | number: '1.2-4' }}</div>
-
-        <div class="col-6 d-md-none"><strong>Remaining:</strong></div>
-        <div class="col-6 col-md-2 text-md-end">Rs {{ data.remain | number: '1.2-4' }}</div>
-
-        <div class="col-6 d-md-none"><strong>Interest:</strong></div>
-        <div class="col-6 col-md-2 text-md-end">Rs {{ data.intrest | number: '1.2-4' }}</div>
-
-        <div class="col-12 col-md-4">
-          <label class="form-label d-md-none mb-1">Bulk Payment</label>
-          <input [(ngModel)]="data.bulk" type="number" class="form-control form-control-sm" placeholder="Optional Bulk" />
+        <!-- Table headers for larger screens -->
+        <div class="d-none d-md-flex fw-bold border-bottom pb-2 mb-2">
+            <div class="col-md-2">Month</div>
+            <div class="col-md-2 text-end">Monthly</div>
+            <div class="col-md-2 text-end">Remaining</div>
+            <div class="col-md-2 text-end">Interest</div>
+            <div class="col-md-4 text-end">Bulk Payment</div>
         </div>
-      </div>
-    </div>
 
-    <!-- Total -->
-    <div class="text-end mt-3">
-      <h6 class="fw-bold">Total Interest: Rs {{ totalIntrest }}</h6>
-      <button class="btn btn-warning w-100 w-md-auto mt-2" (click)="recal()">Recalculate</button>
+        <!-- Responsive rows -->
+        <div *ngFor="let data of arr" class="mb-3 border-bottom pb-2">
+            <div class="row g-2 align-items-end">
+                <!-- Small screen labels -->
+                <div class="col-6 d-md-none"><strong>Month:</strong></div>
+                <div class="col-6 col-md-2">{{ data.month }}</div>
+
+                <div class="col-6 d-md-none"><strong>Monthly:</strong></div>
+                <div class="col-6 col-md-2 text-md-end">Rs {{ data.monthly | number: '1.0-2' }}</div>
+
+                <div class="col-6 d-md-none"><strong>Remaining:</strong></div>
+                <div class="col-6 col-md-2 text-md-end">Rs {{ data.remain | number: '1.0-2' }}</div>
+
+                <div class="col-6 d-md-none"><strong>Interest:</strong></div>
+                <div class="col-6 col-md-2 text-md-end">Rs {{ data.intrest | number: '1.0-2' }}</div>
+
+                <div class="col-12 col-md-4">
+                    <label class="form-label d-md-none mb-1">Bulk Payment</label>
+                    <input
+                            [value]="formatNumber(data.bulk)"
+                            (input)="data.bulk = parseNumber($any($event.target).value)"
+                            (blur)="data.bulk = roundNumber(data.bulk)"
+                            type="text"
+                            class="form-control form-control-sm"
+                            placeholder="Optional Bulk"
+                    />
+                </div>
+            </div>
+        </div>
+
+        <!-- Total -->
+        <div class="text-end mt-3">
+            <h6 class="fw-bold">Total Interest: Rs {{ totalIntrest | number: '1.0-2' }}</h6>
+            <button class="btn btn-warning w-100 w-md-auto mt-2" (click)="recal()">Recalculate</button>
+        </div>
     </div>
-  </div>
 </div>
